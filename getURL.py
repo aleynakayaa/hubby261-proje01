@@ -24,7 +24,9 @@ class GetURL:
             webPage = getBytes.decode("utf8")
             webSite.close()
             soup = BeautifulSoup(webPage, 'html.parser')
-            getOpen.write(dataGet.strip() + " - " + soup.title.contents[0] + "\n")
+            getOpen.write(dataGet.strip() + " - " + soup.title.contents[0] + "\n" + soup.select_one("p").text))
+            print(soup.get_text())
+            webSite.close()
         dataOpen.close()
         getOpen.close()
 
